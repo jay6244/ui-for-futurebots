@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "pdfjs-dist": "^5.4.530",
+    "uuid": "^13.0.0"
+  }
+}
