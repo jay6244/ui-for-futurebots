@@ -1,11 +1,196 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-#root {
-  min-height: 100vh;
-  display: flex;
+body {
+  margin: 0;
+  background: #0b0f19;
+  color: #e7eaf0;
 }
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.small { opacity: 0.75; font-size: 12px; }
+
+/* Basic inputs/buttons */
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(15, 22, 39, 0.7);
+  border: 1px solid rgba(34, 48, 85, 0.9);
+  color: #e7eaf0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  outline: none;
+}
+
+.btn {
+  background: #2b5cff;
+  color: white;
+  border: 0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 900;
+}
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* ===== ChatGPT-like layout ===== */
+.cg-layout {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+/* Sidebar */
+.cg-sidebar {
+  background: #0a0f1c;
+  border-right: 1px solid rgba(31,42,68,0.7);
+  padding: 12px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 12px;
+}
+
+.cg-newchat,
+.cg-linkbtn,
+.cg-item {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(34,48,85,0.85);
+  background: rgba(15, 22, 39, 0.55);
+  color: #e7eaf0;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cg-newchat:hover,
+.cg-linkbtn:hover,
+.cg-item:hover {
+  border-color: rgba(43,92,255,0.9);
+}
+
+.cg-list {
+  overflow: auto;
+  display: grid;
+  gap: 8px;
+  padding-right: 4px;
+}
+
+.cg-item.active {
+  border-color: rgba(43,92,255,0.95);
+  background: rgba(43,92,255,0.10);
+}
+
+/* Main */
+.cg-main {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Top label row */
+.cg-topbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  border-bottom: 1px solid rgba(31,42,68,0.55);
+  background: rgba(10, 15, 28, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+.cg-brand { font-weight: 900; letter-spacing: 0.2px; }
+.cg-user { margin-left: auto; font-size: 12px; opacity: 0.75; font-weight: 800; }
+
+/* Center area */
+.cg-scroll {
+  overflow: auto;
+  padding: 24px 18px 10px;
+}
+
+.cg-empty {
+  margin: 18vh auto 0;
+  width: min(860px, 100%);
+  text-align: center;
+}
+
+.cg-empty h1 {
+  margin: 0;
+  font-size: 42px;
+  letter-spacing: 0.2px;
+}
+
+.cg-chat {
+  width: min(860px, 100%);
+  margin: 0 auto;
+}
+
+/* Messages */
+.cg-msg {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(31,42,68,0.35);
+}
+
+.cg-role {
+  font-size: 12px;
+  opacity: 0.7;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.cg-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cg-row.user {
+  justify-content: flex-end;
+}
+
+.cg-bubble {
+  display: inline-block;
+  max-width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(34,48,85,0.75);
+  background: rgba(15, 22, 39, 0.55);
+  white-space: pre-wrap;
+  line-height: 1.35;
+}
+
+.cg-bubble.user {
+  border-color: rgba(43,92,255,0.35);
+  background: rgba(43,92,255,0.10);
+}
+
+/* Bottom input like ChatGPT */
+.cg-inputbar {
+  border-top: 1px solid rgba(31,42,68,0.55);
+  padding: 12px 18px;
+  background: rgba(10, 15, 28, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.cg-inputwrap {
+  width: min(860px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.cg-iconbtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(34,48,85,0.85);
+  background: rgba(15, 22, 39, 0.55);
+  color: #e7eaf0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.cg-iconbtn:hover { border-color: rgba(43,92,255,0.9); }
